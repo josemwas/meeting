@@ -229,7 +229,9 @@ meeting/
 ├── requirements.txt      # Python dependencies
 ├── meeting_data.json     # Generated data file (created on first run)
 ├── .gitignore           # Git ignore rules
-└── README.md            # This file
+├── README.md            # Project overview and quick start
+├── INSTALLATION.md      # Detailed installation guide
+└── API.md               # Complete API documentation
 ```
 
 ## Core Data Models
@@ -459,8 +461,15 @@ All meeting data is saved to `meeting_data.json` in a structured format:
 ## Technologies Used
 
 - **Jaclang** - Modern programming language for AI applications
-- **ByLLM** (Optional) - AI/LLM integration library
+- **ByLLM** - AI/LLM integration library
+- **LiteLLM** - Unified interface for multiple LLM providers
 - **Python** - Standard library for date/time, JSON
+
+## Documentation
+
+- **[Installation Guide](INSTALLATION.md)** - Detailed installation and setup instructions
+- **[API Documentation](API.md)** - Complete API reference for all functions
+- **[README](README.md)** - This file, overview and quick start
 
 ## Contributing
 
