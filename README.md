@@ -489,10 +489,13 @@ All meeting data is saved to `meeting_data.json` in a structured format:
 
 ## Documentation
 
+📚 **[Documentation Index](DOCUMENTATION_INDEX.md)** - Quick navigation to all documentation
+
 - **[FAQ](FAQ.md)** - Frequently Asked Questions (including "Does this have a frontend?")
 - **[Architecture Overview](ARCHITECTURE.md)** - Application type and architecture details
 - **[Installation Guide](INSTALLATION.md)** - Detailed installation and setup instructions
 - **[API Documentation](API.md)** - Complete API reference for all functions
+- **[CLI Examples](CLI_EXAMPLE.txt)** - Real-world usage examples
 - **[README](README.md)** - This file, overview and quick start
 
 ## Contributing
