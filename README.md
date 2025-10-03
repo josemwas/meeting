@@ -39,21 +39,72 @@ A comprehensive meeting management application built with **Jaclang** that helps
 
 ### Prerequisites
 - Python 3.12+
-- Jaclang 0.8.7+
+- Git (optional, for cloning the repository)
 
-### Setup
+### Step-by-Step Setup Guide
 
-1. Install Jaclang:
+1. **Clone or download this repository:**
 ```bash
-pip install jaclang
+git clone https://github.com/josemwas/meeting.git
+cd meeting
 ```
 
-2. (Optional) For AI features, install ByLLM and set API key:
+Or download and extract the ZIP file from GitHub.
+
+2. **Install dependencies:**
+
+   **Option A: Using pip with requirements.txt (recommended)**
 ```bash
+pip install -r requirements.txt
+```
+
+   **Option B: Manual installation**
+```bash
+# Install Jaclang
+pip install jaclang
+
+# Install ByLLM for AI features
 pip install byllm
-export OPENAI_API_KEY='your-key-here'
-# or
-export ANTHROPIC_API_KEY='your-key-here'
+```
+
+3. **Configure AI features (optional but recommended):**
+
+   To enable AI-powered features, you need to set up an API key from either OpenAI or Anthropic.
+
+   **For OpenAI (GPT models):**
+```bash
+export OPENAI_API_KEY='your-openai-api-key-here'
+```
+
+   **For Anthropic (Claude models):**
+```bash
+export ANTHROPIC_API_KEY='your-anthropic-api-key-here'
+```
+
+   **Note:** You only need ONE of the above API keys. The system will automatically detect which one is available.
+
+   **To get an API key:**
+   - OpenAI: Visit https://platform.openai.com/api-keys
+   - Anthropic: Visit https://console.anthropic.com/
+
+   **Windows users:** Use `set` instead of `export`:
+```cmd
+set OPENAI_API_KEY=your-openai-api-key-here
+```
+
+   **To make the key permanent (Linux/Mac):**
+   Add the export command to your `~/.bashrc` or `~/.zshrc` file.
+
+4. **Verify installation:**
+```bash
+# Test if Jaclang is installed
+jac --version
+
+# Test the main application
+jac run main.jac
+
+# Test the AI assistant (with or without API key)
+jac run ai_assistant.jac
 ```
 
 ## Usage
@@ -206,22 +257,105 @@ meeting/
 
 ## AI Integration
 
-The AI assistant module (`ai_assistant.jac`) provides intelligent automation:
+The AI assistant module (`ai_assistant.jac`) provides intelligent automation using ByLLM:
 
 ### Available AI Functions
 - `generate_meeting_summary(title, notes)` - Auto-summarize meetings
-- `extract_tasks_from_notes(notes)` - Extract action items
-- `suggest_agenda_items(title, purpose)` - Suggest agenda
-- `suggest_task_priority(title, description, deadline)` - Recommend priority
+- `extract_tasks_from_notes(notes)` - Extract action items from notes
+- `suggest_agenda_items(title, purpose)` - Suggest agenda based on meeting purpose
+- `suggest_task_priority(title, description, deadline)` - Recommend task priority
 - `enhance_meeting_notes(notes)` - Structure and enhance notes
 
-### Enabling AI Features
+### How It Works
 
-Currently running in demo mode with placeholder implementations. To enable full AI:
+The AI assistant uses ByLLM (https://github.com/Jaseci-Labs/byllm), which provides a unified interface to multiple LLM providers through LiteLLM.
 
-1. Install ByLLM: `pip install byllm`
-2. Set API key: `export OPENAI_API_KEY='your-key'`
-3. Update `ai_assistant.jac` to integrate ByLLM calls
+**Supported Models:**
+- OpenAI: GPT-4, GPT-4o-mini (default), GPT-3.5-turbo
+- Anthropic: Claude 3 Sonnet, Claude 3 Opus, Claude 3 Haiku
+- And many more through LiteLLM
+
+**Current Configuration:**
+- With `OPENAI_API_KEY`: Uses `gpt-4o-mini` (fast, cost-effective)
+- With `ANTHROPIC_API_KEY`: Uses `claude-3-sonnet-20240229` (powerful, balanced)
+
+### Using AI Features
+
+The system automatically detects if an API key is set and enables AI features accordingly.
+
+**Without API key:**
+- Functions use simple heuristic-based fallbacks
+- Task extraction uses keyword matching
+- Agenda suggestions use templates
+- Priority assignment uses rule-based logic
+
+**With API key:**
+- Full AI-powered intelligent assistance
+- Context-aware task extraction
+- Smart agenda suggestions
+- Intelligent priority recommendations
+
+**Example Usage:**
+```bash
+# Set your API key (choose one)
+export OPENAI_API_KEY='sk-...'  # For OpenAI
+# OR
+export ANTHROPIC_API_KEY='sk-ant-...'  # For Anthropic
+
+# Run the AI assistant demo
+jac run ai_assistant.jac
+
+# The demo will show:
+# - Task extraction from meeting notes
+# - Agenda item suggestions
+# - Meeting summary generation
+# - Task priority recommendations
+```
+
+### Customizing the AI Model
+
+To use a different model, edit `ai_assistant.jac` and modify the `get_model_name()` function:
+
+```jaclang
+def get_model_name() -> str {
+    if "OPENAI_API_KEY" in os.environ {
+        return "gpt-4";  # Change to your preferred OpenAI model
+    } elif "ANTHROPIC_API_KEY" in os.environ {
+        return "claude-3-opus-20240229";  # Change to your preferred Anthropic model
+    }
+    return "";
+}
+```
+
+### Integration Example
+
+You can easily integrate AI features into the main meeting management workflow:
+
+```jaclang
+import ai_assistant;
+import main;
+
+with entry {
+    # Create a meeting
+    meeting = main.create_meeting("Sprint Planning", "2024-02-01", ["Alice", "Bob"]);
+    
+    # Add meeting notes
+    meeting.notes = "We discussed the sprint goals. Alice will create user stories. Bob will set up the development environment.";
+    
+    # Use AI to extract tasks
+    tasks = ai_assistant.extract_tasks_from_notes(meeting.notes);
+    print("AI-extracted tasks:");
+    for task in tasks {
+        print("  - " + task);
+    }
+    
+    # Use AI to suggest agenda
+    agenda = ai_assistant.suggest_agenda_items(meeting.title, "sprint planning");
+    for item in agenda {
+        print("  - " + item);
+    }
+}
+```
 
 ## Example: Creating a Custom Meeting
 
