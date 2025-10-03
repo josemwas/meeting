@@ -17,6 +17,7 @@ build/
 
 # Data files (optional - remove this line if you want to commit meeting data)
 meeting_data.json
+meeting_ai_example.json
 
 # IDEs
 .vscode/

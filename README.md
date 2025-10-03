@@ -7,6 +7,24 @@ A comprehensive meeting management application built with **Jaclang** that helps
 - Manage a traceable to-do list
 - Integrate AI assistance for automation (optional)
 
+## Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/josemwas/meeting.git
+cd meeting
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Run the main app
+jac run main.jac
+
+# 4. (Optional) Enable AI features
+export OPENAI_API_KEY='your-key-here'
+jac run ai_example.jac
+```
+
 ## Features
 
 ### 1. Meeting Management
@@ -134,7 +152,7 @@ This demonstrates a realistic Sprint Planning meeting with:
 - Progress tracking and status updates
 - Detailed reporting by assignee and agenda
 
-### Running the AI Assistant
+### Running the AI Assistant Demo
 
 ```bash
 jac run ai_assistant.jac
@@ -144,6 +162,21 @@ This demonstrates AI-powered features including:
 - Task extraction from notes
 - Agenda item suggestions
 - Task priority recommendations
+
+### Running the AI-Enhanced Meeting Example
+
+```bash
+jac run ai_example.jac
+```
+
+This comprehensive example shows:
+- Creating a meeting with AI-suggested agenda items
+- Extracting tasks from meeting notes using AI
+- Getting AI-powered priority recommendations for tasks
+- Generating AI summaries of meetings
+- Full integration between AI features and core functionality
+
+**Note:** All examples work both with and without an API key. Without an API key, they use fallback implementations.
 
 ### Example Output
 
@@ -190,8 +223,10 @@ This demonstrates AI-powered features including:
 ```
 meeting/
 ├── main.jac              # Main application with core functionality
-├── ai_assistant.jac      # AI integration module (optional)
+├── ai_assistant.jac      # AI integration module (ByLLM/LiteLLM)
 ├── example.jac           # Example workflow (Sprint Planning demo)
+├── ai_example.jac        # AI-enhanced meeting management example
+├── requirements.txt      # Python dependencies
 ├── meeting_data.json     # Generated data file (created on first run)
 ├── .gitignore           # Git ignore rules
 └── README.md            # This file
