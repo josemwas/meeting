@@ -18,6 +18,7 @@ build/
 # Data files (optional - remove this line if you want to commit meeting data)
 meeting_data.json
 meeting_ai_example.json
+meeting_web_data.json
 
 # IDEs
 .vscode/
@@ -33,3 +34,9 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
