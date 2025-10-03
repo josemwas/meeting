@@ -1,6 +1,9 @@
 # Meeting Minutes Management System
 
-A comprehensive meeting management application built with **Jaclang** that helps you:
+> **⚠️ This is a CLI (Command-Line Interface) application - it does NOT have a web frontend or GUI.**
+> All interactions happen through terminal commands. See [ARCHITECTURE.md](ARCHITECTURE.md) for details.
+
+A comprehensive meeting management **command-line application** built with **Jaclang** that helps you:
 - Take and organize meeting minutes
 - Automatically schedule agenda items on a calendar
 - Track progress of all action items
@@ -24,6 +27,25 @@ jac run main.jac
 export OPENAI_API_KEY='your-key-here'
 jac run ai_example.jac
 ```
+
+## Application Type
+
+**This is a Command-Line Interface (CLI) application.** 
+
+- ✅ **Runs in terminal**: All operations performed via command-line
+- ✅ **Text-based output**: Results displayed in the console
+- ✅ **No GUI/Web Interface**: No graphical interface or web browser required
+- ✅ **JSON storage**: Data saved to local JSON files
+- ✅ **For developers**: Designed for power users comfortable with terminal commands
+
+For a detailed architecture overview, see [ARCHITECTURE.md](ARCHITECTURE.md).
+
+### Want a Web Interface?
+
+The application currently has **no frontend**. If you'd like to add one, see the Contributing section below for ideas on:
+- Creating a web interface (React, Vue, HTML)
+- Adding a REST API (FastAPI, Flask)
+- Implementing user authentication
 
 ## Features
 
@@ -467,6 +489,8 @@ All meeting data is saved to `meeting_data.json` in a structured format:
 
 ## Documentation
 
+- **[FAQ](FAQ.md)** - Frequently Asked Questions (including "Does this have a frontend?")
+- **[Architecture Overview](ARCHITECTURE.md)** - Application type and architecture details
 - **[Installation Guide](INSTALLATION.md)** - Detailed installation and setup instructions
 - **[API Documentation](API.md)** - Complete API reference for all functions
 - **[README](README.md)** - This file, overview and quick start
@@ -476,8 +500,8 @@ All meeting data is saved to `meeting_data.json` in a structured format:
 This is a demonstration project showcasing Jaclang capabilities. Feel free to:
 - Add new features
 - Enhance AI integration
-- Create a web interface
-- Add database persistence
+- **Create a web interface** (currently CLI-only - no frontend exists)
+- Add database persistence (currently uses JSON files)
 - Implement user authentication
 
 ## License
