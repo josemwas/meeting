@@ -1,9 +1,9 @@
 # Meeting Minutes Management System
 
-> **⚠️ This is a CLI (Command-Line Interface) application - it does NOT have a web frontend or GUI.**
-> All interactions happen through terminal commands. See [ARCHITECTURE.md](ARCHITECTURE.md) for details.
+> **🎉 NEW: Modern Web Frontend Available!** 
+> This project now includes both a CLI application AND a modern web interface. See [WEB_FRONTEND_README.md](WEB_FRONTEND_README.md) for details.
 
-A comprehensive meeting management **command-line application** built with **Jaclang** that helps you:
+A comprehensive meeting management system built with **Jaclang** that helps you:
 - Take and organize meeting minutes
 - Automatically schedule agenda items on a calendar
 - Track progress of all action items
@@ -11,6 +11,29 @@ A comprehensive meeting management **command-line application** built with **Jac
 - Integrate AI assistance for automation (optional)
 
 ## Quick Start
+
+### Option 1: Web Interface (Recommended for most users)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/josemwas/meeting.git
+cd meeting
+
+# 2. Install dependencies
+pip install -r requirements.txt
+pip install -r backend/requirements.txt
+cd frontend && npm install && cd ..
+
+# 3. Start the backend API (in one terminal)
+cd backend && python api.py
+
+# 4. Start the frontend (in another terminal)
+cd frontend && npm run dev
+
+# 5. Open browser to http://localhost:3000
+```
+
+### Option 2: CLI Application
 
 ```bash
 # 1. Clone the repository
@@ -28,26 +51,40 @@ export OPENAI_API_KEY='your-key-here'
 jac run ai_example.jac
 ```
 
-## Application Type
+## Application Types
 
-**This is a Command-Line Interface (CLI) application.** 
+This project now offers **two ways** to use the meeting management system:
 
-- ✅ **Runs in terminal**: All operations performed via command-line
-- ✅ **Text-based output**: Results displayed in the console
-- ✅ **No GUI/Web Interface**: No graphical interface or web browser required
-- ✅ **JSON storage**: Data saved to local JSON files
-- ✅ **For developers**: Designed for power users comfortable with terminal commands
+### 🌐 Web Interface (NEW!)
+- **Modern React UI**: Beautiful, responsive web interface
+- **Dashboard**: Visual statistics and progress tracking
+- **Interactive**: Click, drag, and interact with your data
+- **Real-time updates**: Changes reflect immediately
+- **Mobile-friendly**: Works on all devices
+
+👉 **See [WEB_FRONTEND_README.md](WEB_FRONTEND_README.md) for detailed setup instructions**
+
+### 💻 CLI Application (Original)
+- **Runs in terminal**: All operations performed via command-line
+- **Text-based output**: Results displayed in the console
+- **JSON storage**: Data saved to local JSON files
+- **For developers**: Designed for power users comfortable with terminal commands
 
 For a detailed architecture overview, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
-### Want a Web Interface?
-
-The application currently has **no frontend**. If you'd like to add one, see the Contributing section below for ideas on:
-- Creating a web interface (React, Vue, HTML)
-- Adding a REST API (FastAPI, Flask)
-- Implementing user authentication
-
 ## Features
+
+### Web Interface Features 🌐
+
+- **📊 Dashboard**: Visual statistics showing meetings, tasks, calendar events, and completion rates
+- **📅 Meeting Management**: Create, view, expand/collapse meetings with attendee lists
+- **📝 Agenda Items**: Add agenda items to meetings with title, description, and duration
+- **✅ Task Tracking**: Filter tasks by status, update progress with sliders, change status
+- **🗓️ Calendar View**: Beautiful timeline showing all events grouped by date
+- **🎨 Modern UI**: Gradient backgrounds, smooth animations, responsive design
+- **📱 Mobile-Friendly**: Works seamlessly on desktop, tablet, and mobile
+
+### CLI Application Features 💻
 
 ### 1. Meeting Management
 - Create meetings with title, date, and attendees
@@ -244,16 +281,27 @@ This demonstrates AI-powered features including:
 
 ```
 meeting/
-├── main.jac              # Main application with core functionality
-├── ai_assistant.jac      # AI integration module (ByLLM/LiteLLM)
-├── example.jac           # Example workflow (Sprint Planning demo)
-├── ai_example.jac        # AI-enhanced meeting management example
-├── requirements.txt      # Python dependencies
-├── meeting_data.json     # Generated data file (created on first run)
-├── .gitignore           # Git ignore rules
-├── README.md            # Project overview and quick start
-├── INSTALLATION.md      # Detailed installation guide
-└── API.md               # Complete API documentation
+├── backend/                    # FastAPI REST API backend
+│   ├── api.py                 # Main API server
+│   └── requirements.txt       # Backend dependencies
+├── frontend/                   # React web frontend
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   ├── App.jsx           # Main app component
+│   │   └── main.jsx          # Entry point
+│   ├── package.json          # Frontend dependencies
+│   └── vite.config.js        # Vite configuration
+├── main.jac                   # CLI application (core functionality)
+├── ai_assistant.jac           # AI integration module (ByLLM/LiteLLM)
+├── example.jac                # Example workflow (Sprint Planning demo)
+├── ai_example.jac             # AI-enhanced meeting management example
+├── requirements.txt           # Python/Jaclang dependencies
+├── start-web.sh              # Quick start script (Linux/Mac)
+├── start-web.bat             # Quick start script (Windows)
+├── README.md                 # This file
+├── WEB_FRONTEND_README.md    # Web frontend documentation
+├── INSTALLATION.md           # Detailed installation guide
+└── API.md                    # Complete API documentation
 ```
 
 ## Core Data Models
@@ -501,11 +549,14 @@ All meeting data is saved to `meeting_data.json` in a structured format:
 ## Contributing
 
 This is a demonstration project showcasing Jaclang capabilities. Feel free to:
-- Add new features
+- Add new features to the web frontend or CLI
 - Enhance AI integration
-- **Create a web interface** (currently CLI-only - no frontend exists)
+- ✅ ~~Create a web interface~~ **DONE!** See [WEB_FRONTEND_README.md](WEB_FRONTEND_README.md)
 - Add database persistence (currently uses JSON files)
-- Implement user authentication
+- Implement user authentication for the web app
+- Add more interactive features (drag-and-drop, real-time collaboration)
+- Improve mobile responsiveness
+- Add export features (PDF, Excel)
 
 ## License
 

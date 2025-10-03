@@ -1,0 +1,217 @@
+.meeting-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.meeting-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.meeting-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.1);
+}
+
+.meeting-header {
+  padding: 20px;
+  background: #f8f9fa;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.meeting-header:hover {
+  background: #e9ecef;
+}
+
+.meeting-info h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.meeting-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.expand-icon {
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.meeting-details {
+  padding: 20px;
+  background: white;
+  border-top: 2px solid #e0e0e0;
+  animation: slideDown 0.3s ease;
+}
+
+.attendees-section {
+  margin-bottom: 20px;
+}
+
+.attendees-section h4 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.attendee-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.attendee-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+}
+
+.agenda-section {
+  margin-bottom: 20px;
+}
+
+.section-header-small {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header-small h4 {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.agenda-form {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agenda-form input,
+.agenda-form textarea {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.agenda-form input:focus,
+.agenda-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.agenda-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agenda-item {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.agenda-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.agenda-item-header strong {
+  color: #333;
+  font-size: 1rem;
+}
+
+.duration-badge {
+  background: #667eea;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.agenda-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.scheduled-badge {
+  display: inline-block;
+  background: #28a745;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.no-items {
+  color: #999;
+  font-style: italic;
+  padding: 10px;
+}
+
+.meeting-actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .meeting-meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .meeting-actions {
+    flex-direction: column;
+  }
+}
