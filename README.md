@@ -71,6 +71,29 @@ This will:
 4. Track progress and generate reports
 5. Save data to `meeting_data.json`
 
+### Running the Example Workflow
+
+```bash
+jac run example.jac
+```
+
+This demonstrates a realistic Sprint Planning meeting with:
+- Multiple agenda items with durations
+- Task assignments to team members
+- Progress tracking and status updates
+- Detailed reporting by assignee and agenda
+
+### Running the AI Assistant
+
+```bash
+jac run ai_assistant.jac
+```
+
+This demonstrates AI-powered features including:
+- Task extraction from notes
+- Agenda item suggestions
+- Task priority recommendations
+
 ### Example Output
 
 ```
@@ -117,7 +140,9 @@ This demonstrates AI-powered features including:
 meeting/
 ├── main.jac              # Main application with core functionality
 ├── ai_assistant.jac      # AI integration module (optional)
+├── example.jac           # Example workflow (Sprint Planning demo)
 ├── meeting_data.json     # Generated data file (created on first run)
+├── .gitignore           # Git ignore rules
 └── README.md            # This file
 ```
 
