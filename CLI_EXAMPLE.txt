@@ -1,0 +1,112 @@
+================================================================================
+EXAMPLE: Running the Meeting Minutes Management System (CLI Application)
+================================================================================
+
+This demonstrates what the user experience looks like for this CLI application.
+
+STEP 1: User opens terminal
+================================================================================
+$ cd meeting
+$ ls
+API.md           CHANGELOG.md     INSTALLATION.md  ai_example.jac   main.jac
+ARCHITECTURE.md  FAQ.md          README.md        example.jac      requirements.txt
+
+
+STEP 2: User runs the application
+================================================================================
+$ jac run main.jac
+
+=== Meeting Minutes Management System ===
+Built with Jaclang
+
+Created meeting: Q1 Planning Meeting
+Added 3 agenda items
+Added 4 tasks
+Auto-scheduled agenda items on calendar
+
+=== Meeting Management System Summary ===
+Total Meetings: 1
+Total Calendar Events: 4
+Total Tasks: 4
+
+Progress Report:
+  Completed: 1
+  In Progress: 2
+  To Do: 1
+  Completion: 25.0%
+========================================
+
+=== To-Do List (Pending Tasks) ===
+- [todo] Update resource matrix (Assignee: Alice, Due: 2024-01-18)
+
+=== In Progress Tasks ===
+- [50%] Create project timeline (Assignee: Bob, Due: 2024-01-22)
+- [25%] Review milestone dependencies (Assignee: Charlie, Due: 2024-01-25)
+
+=== Completed Tasks ===
+- [✓] Prepare budget spreadsheet (Assignee: Alice)
+
+=== Calendar Events ===
+- 2024-01-15: Meeting: Q1 Planning Meeting (60 min)
+- 2024-01-16: Follow-up: Budget Review (60 min)
+- 2024-01-17: Follow-up: Project Timeline (45 min)
+- 2024-01-18: Follow-up: Resource Allocation (30 min)
+
+✓ Data saved to meeting_data.json
+
+
+STEP 3: User views saved data
+================================================================================
+$ cat meeting_data.json
+{
+  "meetings": [
+    {
+      "id": "meeting_1696372800",
+      "title": "Q1 Planning Meeting",
+      "date": "2024-01-15",
+      "attendees": ["Alice", "Bob", "Charlie"],
+      "agenda_items": [...],
+      "notes": ""
+    }
+  ],
+  "calendar_events": [...],
+  "tasks": [...]
+}
+
+
+STEP 4: User runs AI example (optional)
+================================================================================
+$ export OPENAI_API_KEY='sk-your-key-here'
+$ jac run ai_example.jac
+
+=== AI-Enhanced Meeting Management Demo ===
+
+Meeting Context: Q1 Product Launch Planning
+AI is analyzing meeting purpose...
+
+AI-Suggested Agenda Items:
+- Product timeline review
+- Marketing strategy
+- Budget allocation
+- Risk assessment
+
+[... AI-powered features demo ...]
+
+
+================================================================================
+KEY OBSERVATIONS:
+================================================================================
+
+❌ NO WEB BROWSER - All interaction in terminal
+❌ NO GRAPHICAL INTERFACE - Text-only output  
+❌ NO WEB SERVER - Runs locally on your machine
+❌ NO HTML/CSS/JAVASCRIPT - Pure backend logic
+
+✅ TERMINAL COMMANDS - User types commands
+✅ TEXT OUTPUT - Results printed to console
+✅ JSON FILES - Data stored locally
+✅ CLI-BASED - Designed for developers
+
+This is a BACKEND/CLI APPLICATION ONLY.
+To add a web frontend, you would need to build one separately.
+
